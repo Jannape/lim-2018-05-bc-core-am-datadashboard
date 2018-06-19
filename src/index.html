@@ -1,54 +1,134 @@
-
 <!DOCTYPE html>
-<html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="style.css">
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
 <body>
+    <div>
+        <div class="header">
+            <nav>
+                <!-- Logo -->
+                <div class="navbar-left">
+                    <h1>soy el logo de laboratoria</h1>
+                </div>
 
-<!-- Sidebar -->
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-  <h3 class="w3-bar-item">Sedes</h3>
-  <a href="#" class="w3-bar-item w3-button">Lima</a>
-  <a href="#" class="w3-bar-item w3-button">México</a>
-  <a href="#" class="w3-bar-item w3-button">Sao Paulo</a>
-  <a href="#" class="w3-bar-item w3-button">Chile</a>
-</div>
+                <div class="navbar-rigth">
+                    <h1>esta es mi foto de usuario</h1>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+            <div>
+                <!-- Sidebar navigation-->
+                <nav class="sidenav">
+                    <ul>
+                        <li>Cohorts</li>
+                        <li>
+                            <a href="#">Lima-2018 </a>
+                        </li>
+                        <li>
+                            <a href="#">Lima-2017 </a>
+                        </li>
+                        <li>
+                            <a href="#">Lima-2016</a>
+                        </li>
 
-<!-- Page Content -->
-<div style="margin-left:25%">
+                    </ul>
+                    </li>
+                    </ul>
+                </nav>
 
-<div class="w3-container w3-teal">
-  <h1>Laboratoria</h1>
-</div>
-<div class="w3-container">
-        <!-- <h2>My Customers</h2> -->
-        <br>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por nombres.." title="Type in a name">
-  
-        <table id="myTable" class="table">
-                <thead>
-                    <tr class="header">
-                        <th >Laboratorians</th>
-                        <th >Completitud</th>
-                    
-                    </tr>
-                </thead>
-                <tbody >
-                   
-                    
-                                                            
-                    
-                </tbody>
-            </table>
-        
+            </div>
 
-</div>
+            <div class="container-fluid">
 
-</div>
-<script type="text/javascript" src="data.js"></script>
-      
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="card">
+                            <h2>100</h2>
+                            <p class="">Ejercicios </p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <h2>100</h2>
+                            <p class="">Ejercicios </p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <h2>100</h2>
+                            <p class="">Ejercicios </p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- debe ir tabla -->
+                <div class="container-fluid">
+                    <!-- Start Page Content -->
+                    <div class="row">
+                        <div class="col-12">
+
+                            <div>
+                                <div>
+                                    <h4>Estudiantes</h4>
+                                    <h6 class="card-subtitle">Inf.Estudiantes</h6>
+                                    <div>
+                                        <table id="customers">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Unidades Completadas</th>
+                                                    <th>Horas Completadas</th>
+                                                    <th>Total de Unidades</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>63</td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
 </body>
 
 </html>

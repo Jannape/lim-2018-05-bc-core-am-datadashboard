@@ -1,39 +1,74 @@
-
-* {
-  box-sizing: border-box;
-}
-
-
-#myInput {
-  /* background-image: url('/style.css/searchicon.png'); */
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
+.main {
   width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
+  top: 20px;
+  position: absolute;
+  font-size: 15px;
+  display: flex;
 }
+.container-fluid {
+  margin-top:7%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.navbar-left {
+  text-align: left;
+}
+.navbar-rigth{
+  text-align: right;
+}
+.header {
+  position: relative;
+  z-index: 50;
+  background: #fff;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+}
+.row {
 
-.w3-container w3-teal {
-    background-color:#ffc107;
-  }
-#myTable {
+  display: flex;
+
+}
+.col-md-4 {
+  flex: 0 0 25%;
+  max-width: 25%}
+.card {
+  background: #ffffff none repeat scroll 0 0;
+  margin: 12px ;
+  padding: 60px;
+  border: 0 solid #e7e7e7;
+  border-radius: 3px;
+  box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);
+}
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+}
+#customers td, #customers th {
   border: 1px solid #ddd;
-  font-size: 18px;
+  padding: 8px;
 }
 
-#myTable th, #myTable td {
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
   text-align: left;
-  padding: 12px;
+  background-color: rgb(248, 173, 12);
+  color: white;
 }
 
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
+.sidenav {
+   margin-top:6%;
+   height: 100%;
+  position: absolute;
+  width: 240px;
+  height: 100%;
 
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
+  background: #fff;
+  -webkit-box-shadow: 1px 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 1px 0 20px rgba(0, 0, 0, 0.08);
+
 }
