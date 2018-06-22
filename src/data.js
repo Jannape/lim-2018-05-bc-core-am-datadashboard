@@ -34,38 +34,41 @@ xmlhttp.onload = function () {
             xmlhttp3.open("GET", url3, true);
             xmlhttp3.onload = function (event) {
                 let arrCohorts = JSON.parse(this.responseText);
+
                 for (const iteratorCohorts of arrCohorts) {
-                     console.log(iteratorCohorts.start);
+                    // let string = '';
+                    let body = document.getElementById('tbody');
+                    // body.innerHTML = '';
+                    //console.log(iteratorCohorts.start);
                     for (const iteratorUsers of arrUsers) {
                         if (iteratorCohorts.id === 'lim-2018-03-pre-core-pw') {
-                            console.log(iteratorCohorts.usersCount);
+                            // console.log(iteratorCohorts.usersCount);
+                            // let count = 0;
                             if (iteratorUsers.role === 'student') {
-                                console.log(iteratorCohorts.id + ' ' + iteratorUsers.role + ' ' + iteratorUsers.name+' '+iteratorCohorts.start);
+                                console.log(iteratorCohorts.id + ' ' + iteratorUsers.role + ' ' + iteratorUsers.name + ' ' + iteratorCohorts.start);
+                                body.innerHTML += `
+                              <tr>
+                                <td>${ iteratorUsers.name}</td>
+                                <td>${ iteratorUsers.signupCohort}</td>
+                                <td>${ iteratorUsers.role}</td>
+                                <td>${ iteratorUsers.timezone}</td>
+                                <td>${ iteratorUsers.locale}</td>
+                            </tr>
+                                   `
+
+
 
                             }
+
+
                         }
                     }
-
-
-
+                 
                 }
+           
 
 
 
-                //**************************FUNCION QUE COMPARA IDS Y ENLAZA PROGRES con USERS******************************************
-
-                // const keyProgress = Object.keys(ObjectProgress);
-                // for (const prop1 of arrUsers) {
-                //     for (const prop2 of keyProgress) {
-                //         if (prop1.id === prop2) {
-                //             let Units = ObjectProgress[prop2].intro['units'];
-                //             Units['name'] = prop1.name;
-                //             let Nombre = prop1.name;
-                //             console.log(Units);
-                //         }
-                //     }
-                // }
-                //**************************FUNCION QUE COMPARA IDS Y ENLAZA PROGRES con USERS******************************************
             };
             xmlhttp3.send();
         };
