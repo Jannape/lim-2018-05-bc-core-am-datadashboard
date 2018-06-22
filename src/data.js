@@ -34,18 +34,15 @@ xmlhttp.onload = function () {
             xmlhttp3.open("GET", url3, true);
             xmlhttp3.onload = function (event) {
                 let arrCohorts = JSON.parse(this.responseText);
-
-                for (const iteratorCohorts of arrCohorts) {
-                    // let string = '';
+         for (const iteratorCohorts of arrCohorts) {
+                
                     let body = document.getElementById('tbody');
-                    // body.innerHTML = '';
-                    //console.log(iteratorCohorts.start);
+    
                     for (const iteratorUsers of arrUsers) {
                         if (iteratorCohorts.id === 'lim-2018-03-pre-core-pw') {
-                            // console.log(iteratorCohorts.usersCount);
-                            // let count = 0;
+                       
                             if (iteratorUsers.role === 'student') {
-                                console.log(iteratorCohorts.id + ' ' + iteratorUsers.role + ' ' + iteratorUsers.name + ' ' + iteratorCohorts.start);
+                                //console.log(iteratorCohorts.id + ' ' + iteratorUsers.role + ' ' + iteratorUsers.name + ' ' + iteratorCohorts.start);
                                 body.innerHTML += `
                               <tr>
                                 <td>${ iteratorUsers.name}</td>
@@ -55,20 +52,10 @@ xmlhttp.onload = function () {
                                 <td>${ iteratorUsers.locale}</td>
                             </tr>
                                    `
-
-
-
                             }
-
-
                         }
                     }
-                 
                 }
-           
-
-
-
             };
             xmlhttp3.send();
         };
