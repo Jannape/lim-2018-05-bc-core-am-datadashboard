@@ -80,13 +80,16 @@ El prototipo de Baja Fidelidad lo elaboramos en base a papel y lápiz dónde pre
 adelante iniciamos a implementar de acuerdo a las necesidades de nuestra Training Manager, lo cual conocimos a través 
 de una primera entrevista.
 
+![prototipo1](images/prototipo1.jpg)
+![prototipo2](images/prototipo2.jpg)
+![prototipo3](images/prototipo3.jpg)
+
 #### 2) Entrevista a la Training Manager
 
 Con el boceto elaborado de acuerdo a las características del proyecto preparamos una entrevista a nuestra Training 
 Manager en la cual consultamos sobre la experiencia de usar nuestra plantilla y lo que desea experimentar al usarla.
 
-(Aquí va foto de la Entrevista)
-(Aquí va foto de las preguntas de la Entrevista)
+![entrevista](images/entrevista.jpg)
 
 #### 3) Prototipo de Alta Fidelidad
 
