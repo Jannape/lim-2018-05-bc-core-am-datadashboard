@@ -1,31 +1,34 @@
-
-
-
 const selectCohorts = document.getElementById('selectCohorts');
 // const idCohort = selectCohorts.value;
-  const tableCohorts = document.getElementById('tableCohorts');
-//  const tableUserStats = document.getElementById('tableCohorts');
-//  const sortNombre = document.getElementById('sortNombre');
-//  let orderBy=sortNombre.value
+const tableCohorts = document.getElementById('tableCohorts');
 
+//  const tableUserStats = document.getElementById('tableCohorts');
+const sortNombre = document.getElementById('sortNombre');
+const percentExercices = document.getElementById('percentExercices');
+const percentQuizzes = document.getElementById('percentQuizzes');
+const percentReads = document.getElementById('percentReads');
+const percentQuizzesScoreAvg = document.getElementById('percentQuizzesScoreAvg');
+//  let orderBy=sortNombre.value
+const btnSearchStudent = document.getElementById('btnSearchStudent');
+const txtObtenerValor = document.getElementById('obtenerValor');
 idCohort = 'lim-2018-03-pre-core-pw';
 
 //***********************************RETORNA USERS DEL COHORT *****************************************************************/
 const getUsers = (idCohort) => {
 
-    let users = [];
-    fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
-        .then(res => res.json())
-        .then(usersJson => {
-            usersJson.map(elementUsersJson => {
-                if (elementUsersJson.signupCohort === idCohort && elementUsersJson.role === 'student') {
-                    users.push(elementUsersJson);
-                }
+        let users = [];
+        fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
+            .then(res => res.json())
+            .then(usersJson => {
+                usersJson.map(elementUsersJson => {
+                    if (elementUsersJson.signupCohort === idCohort && elementUsersJson.role === 'student') {
+                        users.push(elementUsersJson);
+                    }
+                })
             })
-        })
-    return users;
-}
-//***********************************RETORNA COURSES INDEX*****************************************************************/
+        return users;
+    }
+    //***********************************RETORNA COURSES INDEX*****************************************************************/
 const getCoursesIndex = (idCohort) => {
     console.log('soy la fx getCoursesIndex');
     let courses = [];
@@ -61,11 +64,11 @@ const listTableStudentStats = (userStats) => {
 }
 
 //***********************************RETORNA UN OBJETO CON USERS Y PROGRESS *****************************************************************/
-const getProgress = (idCohort) => {
+const getProgress = (idCohort, orderBy, orderDirection, paramSearch) => {
     console.log('soy la fx getProgress');
     let courses = getCoursesIndex(idCohort);
     let users = getUsers(idCohort);
-
+    tableCohorts.innerHTML = "";
     fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json')
         .then(res => res.json())
         .then(progress => {
@@ -76,13 +79,12 @@ const getProgress = (idCohort) => {
                     progress: progress,
                     courses: courses
                 },
-                orderBy: 'sortNombre',
-                orderDirection: 'DESC',
-                search: 'Janna'
+                orderBy: orderBy,
+                orderDirection: orderDirection,
+                search: paramSearch
             }
-           return  processCohortData(options);
+            listTableStudentStats(processCohortData(options));
             console.log(options);
-
         });
 
 }
@@ -116,7 +118,7 @@ const viewListCohorts = () => {
 //      const idCohort = selectCohorts.value;
 //     console.log('soy eventCohort');
 //     if (idCohort === 'lim-2018-03-pre-core-pw') {
-       
+
 //         listTableStudentStats(usersStats);
 //     } else {
 //         alert('seleccionaste otro cohort');
@@ -125,11 +127,70 @@ const viewListCohorts = () => {
 // }
 //************** */
 
-//*********************************************INVOCANDO A LAS FUNCIONES ***********************************************************************/
-
-
-
-getProgress(idCohort);
-viewListCohorts();
 //***********************************EVENTOS DOM******************************************* */
 //   selectCohorts.addEventListener('change', eventCohort(userStats));
+const initEvents = () => {
+    btnSearchStudent.addEventListener('click', () => {
+        let value = txtObtenerValor.value;
+        getProgress(idCohort, value);
+    }, false);
+    txtObtenerValor.addEventListener('keyup', () => {
+        let value = txtObtenerValor.value;
+        getProgress(idCohort, value);
+    }, false);
+    sortNombre.addEventListener('click', (e) => {
+        let sortBy = sortNombre.name;
+        let sortDireccion = sortNombre.value;
+        let paramSearch = txtObtenerValor.value;
+        console.log(sortBy + ' -' + sortDireccion + ' - ' + paramSearch);
+        getProgress(idCohort, sortBy, sortDireccion, paramSearch);
+        if (sortDireccion == "DESC") {
+            sortNombre.value = "ASC";
+        } else sortNombre.value = "DESC";
+    }, false);
+    percentExercices.addEventListener('click', (e) => {
+        let sortBy = percentExercices.name;
+        let sortDireccion = percentExercices.value;
+        let paramSearch = txtObtenerValor.value;
+        console.log(sortBy + ' -' + sortDireccion + ' - ' + paramSearch);
+        getProgress(idCohort, sortBy, sortDireccion, paramSearch);
+        if (sortDireccion == "DESC") {
+            percentExercices.value = "ASC";
+        } else percentExercices.value = "DESC";
+    }, false);
+    percentQuizzes.addEventListener('click', (e) => {
+        let sortBy = percentQuizzes.name;
+        let sortDireccion = percentQuizzes.value;
+        let paramSearch = txtObtenerValor.value;
+        console.log(sortBy + ' -' + sortDireccion + ' - ' + paramSearch);
+        getProgress(idCohort, sortBy, sortDireccion, paramSearch);
+        if (sortDireccion == "DESC") {
+            percentQuizzes.value = "ASC";
+        } else percentQuizzes.value = "DESC";
+    }, false);
+    percentReads.addEventListener('click', (e) => {
+        let sortBy = percentReads.name;
+        let sortDireccion = percentReads.value;
+        let paramSearch = txtObtenerValor.value;
+        console.log(sortBy + ' -' + sortDireccion + ' - ' + paramSearch);
+        getProgress(idCohort, sortBy, sortDireccion, paramSearch);
+        if (sortDireccion == "DESC") {
+            percentReads.value = "ASC";
+        } else percentReads.value = "DESC";
+    }, false);
+    percentQuizzesScoreAvg.addEventListener('click', (e) => {
+        let sortBy = percentQuizzesScoreAvg.name;
+        let sortDireccion = percentQuizzesScoreAvg.value;
+        let paramSearch = txtObtenerValor.value;
+        console.log(sortBy + ' -' + sortDireccion + ' - ' + paramSearch);
+        getProgress(idCohort, sortBy, sortDireccion, paramSearch);
+        if (sortDireccion == "DESC") {
+            percentQuizzesScoreAvg.value = "ASC";
+        } else percentQuizzesScoreAvg.value = "DESC";
+    }, false);
+}
+
+//*********************************************INVOCANDO A LAS FUNCIONES ***********************************************************************/
+initEvents();
+getProgress(idCohort, 'sortNombre', 'DESC', '');
+viewListCohorts()

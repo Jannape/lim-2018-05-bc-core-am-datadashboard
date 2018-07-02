@@ -12,8 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Dashboard Laboratoria</title>
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -317,7 +316,7 @@
                                     <div class="input-group input-group-rounded">
                                         <input id="obtenerValor" type="text" placeholder="Search Round" name="Search" class="form-control">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-primary btn-group-right" type="submit">
+                                            <button id="btnSearchStudent" class="btn btn-primary btn-group-right" type="button" >
                                                 <i class="ti-search"></i>
                                             </button>
                                         </span>
@@ -334,31 +333,27 @@
                                             <tr>
 
                                                 <th>Name
-                                                    <button id="sortNombre" value="sortNombre" type="button" class="btn btn-link m-b-10 m-l-5" >
+                                                    <button id="sortNombre" name="sortNombre" value="DESC" data- type="button" class="btn btn-link m-b-10 m-l-5">
                                                         <i class="fas fa-sort"></i>
                                                     </button>
                                                 </th>
                                                 <th>Exercices
-                                                    <button id="percentExercices" value="sortPercentExercices" type="button"
-                                                        class="btn btn-link m-b-10 m-l-5">
+                                                    <button id="percentExercices" name="sortPercentExercices" value="DESC" type="button" class="btn btn-link m-b-10 m-l-5">
                                                         <i class="fas fa-sort"></i>
                                                     </button>
                                                 </th>
                                                 <th>Quizzes
-                                                    <button id="percentQuizzes" value="sortPercentQuizzes" type="button"
-                                                        class="btn btn-link m-b-10 m-l-5">
+                                                    <button id="percentQuizzes" name="sortPercentQuizzes" value="DESC" type="button" class="btn btn-link m-b-10 m-l-5">
                                                         <i class="fas fa-sort"></i>
                                                     </button>
                                                 </th>
                                                 <th>Reads
-                                                    <button id="percentReads" value="sortPercentReads" type="button"
-                                                        class="btn btn-link m-b-10 m-l-5">
+                                                    <button id="percentReads" name="sortPercentReads" value="DESC" type="button" class="btn btn-link m-b-10 m-l-5">
                                                         <i class="fas fa-sort"></i>
                                                     </button>
                                                 </th>
                                                 <th>Quizzes Avg
-                                                    <button id="percentQuizzesScoreAvg" value="sortPercentQuizzesScoreAvg"
-                                                        type="button" class="btn btn-link m-b-10 m-l-5">
+                                                    <button id="percentQuizzesScoreAvg" name="sortPercentQuizzesScoreAvg" value="DESC" type="button" class="btn btn-link m-b-10 m-l-5">
                                                         <i class="fas fa-sort"></i>
                                                     </button>
                                                 </th>
