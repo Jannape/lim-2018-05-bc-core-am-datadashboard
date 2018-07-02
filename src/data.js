@@ -11,7 +11,9 @@ const avgQuizzesProm = (a, b) => {
 window.computeUsersStats = (users, progress, courses) => {
   console.log('soy computeUsersStats');
   const arrIdsProgress = Object.keys(progress);
-  let YULI = 0;
+  let total1 = 0;
+  let total2 = 0;
+  let total3 = 0;
   for (const iteratorUsers of users) {
       for (const iteratorIds of arrIdsProgress) { //itero los ids de progress
           for (const iteratorCourses of courses) {
@@ -97,15 +99,19 @@ window.computeUsersStats = (users, progress, courses) => {
                               completed: 0,
                               percent: 0,
                           }
+                          
                       }
-                  }
-                  YULI += iteratorUsers.stats.exercices.percent;
+                  }  total1 += iteratorUsers.stats.exercices.percent;
+                  total2 += iteratorUsers.stats.reads.percent;
+                  total3 += iteratorUsers.stats.quizzes.percent;
+                  
+              
               } 
-            
+           
           }
       }
   }
-  console.log(YULI);
+  console.log(total1,total2,total3);
   return users;
 
 
