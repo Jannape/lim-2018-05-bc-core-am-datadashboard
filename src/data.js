@@ -107,7 +107,7 @@ window.computeUsersStats = (users, progress, courses) => {
 }
 window.sortUsers = (userStats, orderBy, orderDirection) => {
   console.log('soy fx sortUsers');
-  let listOrder = userStats;
+  let listOrder = userStats
   if (orderBy === "sortNombre") {
     listOrder.sort((a, b) => {
       let elementA = a.name.toLowerCase();
