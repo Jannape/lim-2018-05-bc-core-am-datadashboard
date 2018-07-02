@@ -30,7 +30,7 @@ describe('data', () => {
       processed.forEach(user => {
         assert.ok(user.hasOwnProperty('stats'));
         assert.isNumber(user.stats.percent);
-        assert.isObject(user.stats.exercises);
+        assert.isObject(user.stats.exercices);
         assert.isObject(user.stats.quizzes);
         assert.isObject(user.stats.reads);
       });
@@ -46,7 +46,7 @@ describe('data', () => {
       );
 
       it('debería tener propiedad exercises con valor {total: 2, completed: 0, percent: 0}', () => {
-        assert.deepEqual(processed[0].stats.exercises, {
+        assert.deepEqual(processed[0].stats.exercices, {
           total: 2,
           completed: 0,
           percent: 0,
@@ -59,6 +59,7 @@ describe('data', () => {
           completed: 2,
           percent: 67,
           scoreAvg: 29,
+          scoreSum: 57,
         });
       });
 
@@ -74,7 +75,7 @@ describe('data', () => {
 
   });
 
-  describe('sortUsers(users, orderBy, orderDirection)', () => {
+  describe('sortUsers(userStats, orderBy, orderDirection)', () => {
 
     it('debería retornar arreglo de usuarios ordenado por nombre ASC');
     it('debería retornar arreglo de usuarios ordenado por nombre DESC');
@@ -91,13 +92,13 @@ describe('data', () => {
 
   });
 
-  describe('filterUsers(users, filterBy)', () => {
+  describe('filterUsers(usersSortStats,search)', () => {
 
     it('debería retornar nuevo arreglo solo con usuarios con nombres que contengan string (case insensitive)');
 
   });
 
-  describe('processCohortData({ cohortData, orderBy, orderDirection, filterBy })', () => {
+  describe('processCohortData(options)', () => {
 
     it('debería retornar arreglo de usuarios con propiedad stats y aplicar sort y filter');
 
