@@ -1,4 +1,5 @@
 const selectCohorts = document.getElementById('selectCohorts');
+const total1=document.getElementById('total1');
 // const idCohort = selectCohorts.value;
 const tableCohorts = document.getElementById('tableCohorts');
 
@@ -13,22 +14,23 @@ const btnSearchStudent = document.getElementById('btnSearchStudent');
 const txtObtenerValor = document.getElementById('obtenerValor');
 idCohort = 'lim-2018-03-pre-core-pw';
 
+
 //***********************************RETORNA USERS DEL COHORT *****************************************************************/
 const getUsers = (idCohort) => {
 
-        let users = [];
-        fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
-            .then(res => res.json())
-            .then(usersJson => {
-                usersJson.map(elementUsersJson => {
-                    if (elementUsersJson.signupCohort === idCohort && elementUsersJson.role === 'student') {
-                        users.push(elementUsersJson);
-                    }
-                })
+    let users = [];
+    fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
+        .then(res => res.json())
+        .then(usersJson => {
+            usersJson.map(elementUsersJson => {
+                if (elementUsersJson.signupCohort === idCohort && elementUsersJson.role === 'student') {
+                    users.push(elementUsersJson);
+                }
             })
-        return users;
-    }
-    //***********************************RETORNA COURSES INDEX*****************************************************************/
+        })
+    return users;
+}
+//***********************************RETORNA COURSES INDEX*****************************************************************/
 const getCoursesIndex = (idCohort) => {
     console.log('soy la fx getCoursesIndex');
     let courses = [];
