@@ -132,6 +132,12 @@ const viewListCohorts = () => {
 //***********************************EVENTOS DOM******************************************* */
 //   selectCohorts.addEventListener('change', eventCohort(userStats));
 const initEvents = () => {
+    selectCohorts.addEventListener('change', (evt) => {
+        console.log(evt.target.value);
+        getProgress(evt.target.value, 'sortNombre', 'DESC', '');
+        
+    })
+
     btnSearchStudent.addEventListener('click', () => {
         let value = txtObtenerValor.value;
         let sortBy = sortNombre.name;
@@ -194,7 +200,7 @@ const initEvents = () => {
         let paramSearch = txtObtenerValor.value;
         console.log(sortBy + ' -' + sortDireccion + ' - ' + paramSearch);
         getProgress(idCohort, sortBy, sortDireccion, paramSearch);
-        if (sortDireccion == "DESC") {
+        if (sortDireccion == "DESC") {getProgress
             percentQuizzesScoreAvg.value = "ASC";
         } else percentQuizzesScoreAvg.value = "DESC";
     }, false);
@@ -202,7 +208,7 @@ const initEvents = () => {
 
 //*********************************************INVOCANDO A LAS FUNCIONES ***********************************************************************/
 initEvents();
-getProgress(idCohort, 'sortNombre', 'DESC', '');
+//getProgress(idCohort, 'sortNombre', 'DESC', '');
 viewListCohorts()
 
 //¨¨¨¨¨¨enviar como parametro viewcohorts a la que pinta la tabla,condicionandolo que si el valor que se option

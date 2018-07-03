@@ -113,13 +113,13 @@ window.computeUsersStats = (users, progress, courses) => {
             }
         }
     }
-    // total1A = Math.round(totalN1 / 100);
-    // total2A = Math.round(totalN2 / 100);
-    // total3A = Math.round(totalN3 / 100);
+    total1A = Math.round(totalN1 / 100);
+    total2A = Math.round(totalN2 / 100);
+    total3A = Math.round(totalN3 / 100);
 
-    // document.getElementById("total1").innerText = total1A;
-    // document.getElementById("total2").innerText = total2A;
-    // document.getElementById("total3").innerText = total3A;
+    document.getElementById("total1").innerText = total1A;
+    document.getElementById("total2").innerText = total2A;
+    document.getElementById("total3").innerText = total3A;
     return users;
 
 
