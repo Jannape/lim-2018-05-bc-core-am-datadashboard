@@ -1,5 +1,5 @@
 const selectCohorts = document.getElementById('selectCohorts');
-const total1=document.getElementById('total1');
+const total1 = document.getElementById('total1');
 // const idCohort = selectCohorts.value;
 const tableCohorts = document.getElementById('tableCohorts');
 
@@ -32,7 +32,7 @@ const getUsers = (idCohort) => {
 }
 //***********************************RETORNA COURSES INDEX*****************************************************************/
 const getCoursesIndex = (idCohort) => {
- 
+
     let courses = [];
     fetch('../data/cohorts.json')
         .then(res => res.json())
@@ -135,7 +135,7 @@ const initEvents = () => {
     selectCohorts.addEventListener('change', (evt) => {
         console.log(evt.target.value);
         getProgress(evt.target.value, 'sortNombre', 'DESC', '');
-        
+
     })
 
     btnSearchStudent.addEventListener('click', () => {
@@ -200,7 +200,8 @@ const initEvents = () => {
         let paramSearch = txtObtenerValor.value;
         console.log(sortBy + ' -' + sortDireccion + ' - ' + paramSearch);
         getProgress(idCohort, sortBy, sortDireccion, paramSearch);
-        if (sortDireccion == "DESC") {getProgress
+        if (sortDireccion == "DESC") {
+            getProgress
             percentQuizzesScoreAvg.value = "ASC";
         } else percentQuizzesScoreAvg.value = "DESC";
     }, false);
