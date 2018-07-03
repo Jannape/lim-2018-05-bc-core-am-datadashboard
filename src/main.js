@@ -204,3 +204,6 @@ const initEvents = () => {
 initEvents();
 getProgress(idCohort, 'sortNombre', 'DESC', '');
 viewListCohorts()
+
+//¨¨¨¨¨¨enviar como parametro viewcohorts a la que pinta la tabla,condicionandolo que si el valor que se option
+//CUANDO SELECCIONA EL COHORT ES LIM ENTONCES QUE CARGUE LA TABLA.

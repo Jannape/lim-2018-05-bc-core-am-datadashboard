@@ -76,19 +76,109 @@ describe('data', () => {
   });
 
   describe('sortUsers(userStats, orderBy, orderDirection)', () => {
+    const studentA = {
+      id: "gXXS7Rcic5QmbDA4k2w3RH41BdX2",
+      locale: "es-PE",
+      name: "Aide Reyna Huanacuni Pacho",
+      role: "student",
+      signupCohort: "lim-2018-03-pre-core-pw",
+      stats: {
+        exercices: {
+          completed :2,
+          percent:100,
+          total:2
+        },
+        percent:100,
+        quizzes: {
+          completed:3,
+          percent:100,
+          scoreAvg: 89,
+          scoreSum:268,
+          total : 3
+        },
+        reads: {
+          completed:11,
+          percent: 100,
+          total : 11,
+        },
+        timezone:"America/Lima"
+      }
+    }
+    const studentB = {
+      id: "MinIWOm1sHOeMguGiQoe1wjqmiC3",
+      locale: "es-PE",
+      name: "adriana vizcarra paitán",
+      role: "student",
+      signupCohort: "lim-2018-03-pre-core-pw",
+      stats: {
+        exercices: {
+          completed :2,
+          percent:100,
+          total:2
+        },
+        percent:100,
+        quizzes: {
+          completed:3,
+          percent:100,
+          scoreAvg: 79,
+          scoreSum:237,
+          total : 3
+        },
+        reads: {
+          completed:11,
+          percent: 100,
+          total : 11,
+        },
+        timezone:"America/Lima"
+      }
+    }
+ 
+ 
+    let students = [studentA, studentB];
+   
+    it('debería retornar arreglo de usuarios ordenado por nombre ASC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortNombre"), [studentA, studentB])
+    });
 
-    it('debería retornar arreglo de usuarios ordenado por nombre ASC');
-    it('debería retornar arreglo de usuarios ordenado por nombre DESC');
-    it('debería retornar arreglo de usuarios ordenado por porcentaje general ASC');
-    it('debería retornar arreglo de usuarios ordenado por porcentaje general DESC');
-    it('debería retornar arreglo de usuarios ordenado por ejercicios completados ASC');
-    it('debería retornar arreglo de usuarios ordenado por ejercicios completados DESC');
-    it('debería retornar arreglo de usuarios ordenado por quizzes completados ASC');
-    it('debería retornar arreglo de usuarios ordenado por quizzes completados DESC');
-    it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados ASC');
-    it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados DESC');
-    it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas ASC');
-    it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas DESC');
+    it('debería retornar arreglo de usuarios ordenado por nombre DESC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortNombre"), [studentA, studentB])
+    });
+    it('debería retornar arreglo de usuarios ordenado por porcentaje general ASC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentTotal"), [studentA, studentB])
+    });
+    it('debería retornar arreglo de usuarios ordenado por porcentaje general DESC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentTotal"), [studentA, studentB])
+    });
+    it('debería retornar arreglo de usuarios ordenado por ejercicios completados ASC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentExercices"), [studentA, studentB])
+    });
+    it('debería retornar arreglo de usuarios ordenado por ejercicios completados DESC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentExercices"), [studentA, studentB])
+    });
+
+    it('debería retornar arreglo de usuarios ordenado por quizzes completados ASC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentQuizzes"), [studentA, studentB])
+    });
+    it('debería retornar arreglo de usuarios ordenado por quizzes completados DESC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentQuizzes"), [studentA, studentB])
+    });
+    
+    it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados ASC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentQuizzesScoreAvg"), [studentA, studentB])
+    });
+
+    it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados DESC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentQuizzesScoreAvg"), [studentA, studentB])
+    });
+
+    it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas ASC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentReads"), [studentA, studentB])
+    });
+    it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas DESC', () => {
+      assert.deepEqual(window.sortUsers(students, "DESC", "sortPercentReads"), [studentA, studentB])
+    });
+
+
 
   });
 

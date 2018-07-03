@@ -40,10 +40,9 @@ window.computeUsersStats = (users, progress, courses) => {
                                 if (type === 'quiz') {
                                     quizzTotal++;
                                     if (completed === 1) { quizzCompleted++ }
-                                    // console.log(partsUnit[iteratorParts]);
+                                   
                                     if ((partsUnit[iteratorParts]).hasOwnProperty('score')) {
-                                        // console.log(partsUnit);
-                                        // console.log(partsUnit)
+                                      
                                         quizzScoreSum += partsUnit[iteratorParts].score
                                     }
                                 }
@@ -56,7 +55,7 @@ window.computeUsersStats = (users, progress, courses) => {
                             }
 
                         }
-                        // const promedioquizzes = (avgQuizzesProm(quizzScoreSum,quizzCompleted));
+                   
                         iteratorUsers['stats'] = {
                             reads: {
                                 total: countReadsTotal,
@@ -114,19 +113,20 @@ window.computeUsersStats = (users, progress, courses) => {
             }
         }
     }
-    total1A = Math.round(totalN1 / 100);
-    total2A = Math.round(totalN2 / 100);
-    total3A = Math.round(totalN3 / 100);
+    // total1A = Math.round(totalN1 / 100);
+    // total2A = Math.round(totalN2 / 100);
+    // total3A = Math.round(totalN3 / 100);
 
-    document.getElementById("total1").innerText = total1A;
-    document.getElementById("total2").innerText = total2A;
-    document.getElementById("total3").innerText = total3A;
+    // document.getElementById("total1").innerText = total1A;
+    // document.getElementById("total2").innerText = total2A;
+    // document.getElementById("total3").innerText = total3A;
     return users;
 
 
 }
 window.sortUsers = (userStats, orderBy, orderDirection) => {
     console.log('soy fx sortUsers');
+
     let listOrder = userStats
     if (orderBy === "sortNombre") {
         listOrder.sort((a, b) => {
@@ -192,6 +192,7 @@ window.sortUsers = (userStats, orderBy, orderDirection) => {
     //*******porcentaje de completitud general del usuario**********************
     if (orderDirection === "DESC") {
         listOrder = listOrder.reverse();
+
     }
 
     return listOrder;
@@ -200,6 +201,8 @@ window.sortUsers = (userStats, orderBy, orderDirection) => {
 
 window.filterUsers = (users, search) => {
     let listFilter = users.filter(user => (user.name.toUpperCase()).indexOf(search.toUpperCase()) !== -1);
+    console.log('hola filter');
+    console.log(listFilter);
     return listFilter;
 }
 
@@ -214,8 +217,13 @@ window.processCohortData = (options) => {
     const search = options.search;
     let userStats = computeUsersStats(users, progress, courses);
     let usersSortStats = sortUsers(userStats, orderBy, orderDirection);
+    console.log('hola soyyyyusersSortStats');
+console.log(usersSortStats);
     if (search !== "") {
         studentsFilterUsers = filterUsers(usersSortStats, search);
+        console.log('hola filter');
+        console.log(studentsFilterUsers);
     } else studentsFilterUsers = usersSortStats;
+   
     return studentsFilterUsers;
 }
