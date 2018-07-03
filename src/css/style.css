@@ -5,7 +5,8 @@
 @import url(../icons/linea-icons/linea.css);
 @import url(../icons/themify-icons/themify-icons.css);
 @import url(../icons/flag-icon-css/flag-icon.min.css);
-@import url(../icons/material-design-iconic-font/css/materialdesignicons.min.css);
+
+/* @import url(../icons/material-design-iconic-font/css/materialdesignicons.min.css); */
 @import url(spinners.css);
 @import url(animate.css);
 /*
@@ -6906,6 +6907,10 @@ tbody tr td:last-child {
   }
   .footer {
     left: 0;
+  }
+
+  .icon-archive {
+    size: 7px;
   }
 }
 /*  10 - media screen and (max-width: 320px)
